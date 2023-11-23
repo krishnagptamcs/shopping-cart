@@ -5,6 +5,7 @@ import { NavLink } from "react-router-dom";
 
 export const Navbar = () => {
   const { cart } = useSelector((state) => state);
+  console.log("cart::", cart);
   return (
     <div className="flex justify-between items-center h-20 max-w-6xl mx-auto">
       <div className="ml-5">
