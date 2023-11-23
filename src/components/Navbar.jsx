@@ -6,11 +6,24 @@ import { NavLink } from "react-router-dom";
 export const Navbar = () => {
   const { cart } = useSelector((state) => state);
   console.log("cart::", cart);
+
+  const eventCall = () => {
+    // Track the "Homebutton_clicked" event
+    window.gtag("event", "addtocartbutton_clicked", {
+      event_category: "Engagement",
+      event_label: "Home Button Clicked",
+    });
+  };
   return (
     <div className="flex justify-between items-center h-20 max-w-6xl mx-auto">
       <div className="ml-5">
-        <NavLink to="/">
-          <img src="../image2.png" width={120} height={100}  className="bg-slate-900"/>
+        <NavLink to="/" onClick={eventCall}>
+          <img
+            src="../image2.png"
+            width={120}
+            height={100}
+            className="bg-slate-900"
+          />
         </NavLink>
       </div>
 
@@ -21,7 +34,7 @@ export const Navbar = () => {
 
         <NavLink to="/cart">
           <div className="relative">
-            <BsCart4  className="text-2xl"/>
+            <BsCart4 className="text-2xl" />
 
             {cart.length > 0 && (
               <span className="text-sm absolute -top-2 -right-2 bg-green-600 rounded-full w-5 h-5  z-20 flex justify-center items-center animate-bounce">
