@@ -9,6 +9,8 @@ import {remove} from "../redux/slices/CartSlice";
 export const CartItem = ({ item, index }) => {
   const dispatch = useDispatch();
 
+  console.log("running..")
+
   const removeFromcart = () => {
     dispatch(remove(item.id));
     toast.error("item removed from cart 😓");
