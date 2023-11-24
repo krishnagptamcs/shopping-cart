@@ -9,7 +9,7 @@ export const Navbar = () => {
 
   const eventCall = () => {
     // Track the "Homebutton_clicked" event
-    window.gtag("event", "addtocartbutton_clicked", {
+    window.gtag("event", "Homebutton_clicked", {
       event_category: "Engagement",
       event_label: "Home Button Clicked",
     });

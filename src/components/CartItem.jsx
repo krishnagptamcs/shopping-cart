@@ -16,7 +16,7 @@ export const CartItem = ({ item, index }) => {
     toast.error("item removed from cart 😓");
 
     // Track the "removefromcarttbutton_clicked" event
-    window.gtag("event", "addtocartbutton_clicked", {
+    window.gtag("event", "removefromcartbutton_clicked", {
       event_category: "Engagement",
       event_label: "Remove from Cart Button Clicked",
     });

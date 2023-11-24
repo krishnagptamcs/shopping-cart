@@ -15,7 +15,7 @@ export const Product = ({ post }) => {
     toast.error("Item removed succesfully 😓");
 
       // Track the "removebutton_clicked" event
-      window.gtag('event', 'addtocartbutton_clicked', {
+      window.gtag('event', 'removebutton_clicked', {
         event_category: 'Engagement',
         event_label: 'Remove Cart Button Clicked',
       });
