@@ -1,8 +1,10 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-hot-toast";
+import { logEvent } from "firebase/analytics";
 
 import { add, remove } from "../redux/slices/CartSlice";
+import { analytics } from "../firebase";
 // import "react-toastify/dist/React-Toastify.css";
 
 export const Product = ({ post }) => {
@@ -14,11 +16,13 @@ export const Product = ({ post }) => {
     dispatch(remove(post.id));
     toast.error("Item removed succesfully 😓");
 
-      // Track the "removebutton_clicked" event
-      window.gtag('event', 'removebutton_clicked', {
-        event_category: 'Engagement',
-        event_label: 'Remove Cart Button Clicked',
-      });
+    logEvent(analytics, "Firebse_event_clicked_REMOVE");
+
+    // Track the "removebutton_clicked" event
+    window.gtag("event", "removebutton_clicked", {
+      event_category: "Engagement",
+      event_label: "Remove Cart Button Clicked",
+    });
   };
 
   const addCart = () => {
@@ -30,6 +34,8 @@ export const Product = ({ post }) => {
       event_category: "Engagement",
       event_label: "Add to Cart Button Clicked",
     });
+
+    logEvent(analytics, "Firebse_event_clicked_ADD");
   };
 
   return (
